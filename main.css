@@ -1,0 +1,81 @@
+/* Body styling */
+body {
+    background-color: rgb(64, 67, 84);
+}
+
+/* Center container */
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1200px;
+}
+
+/* Header styling */
+header {
+    background-color: rgb(42, 227, 0);
+    height: 118px;
+    text-align: center;
+    font-size: 90px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style for the small header logo */
+.header-logo {
+    width: 60px; /* Adjust to preferred size */
+    height: auto;
+    vertical-align: middle; /* Centers image vertically within the header */
+}
+
+/* Navigation styling */
+nav {
+    background-color: rgb(0, 0, 0);
+    height: 40px;
+}
+
+/* Main content area */
+main {
+    height: 1000px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+/* Style for main content image */
+.main-image {
+    width: 80%; /* Adjust to preferred size */
+    max-width: 400px;
+    height: auto;
+    margin-top: 20px;
+}
+
+/* Footer styling */
+footer {
+    background-color: lightcyan;
+    height: 40px;
+}
+
+/* Styling for main headings */
+h2 {
+    color: beige;
+    text-align: center;
+}
+
+h1 {
+    font-size: 60px;
+    color: black;
+    font-family: comic-sans, Arial, Helvetica, sans-serif;
+}
+
+/* Paragraph styling */
+p {
+    font-size: 40px;
+    color: black;
+    font-family: comic-sans, Arial, Helvetica, sans-serif;
+    text-align: left;
+}
+
+/* Button styling for link */
+.link-button {
+    display: inline-block;         /* Makes the link behave like a button */
+    padding: 10px 20px;            /* Adds padding for a button-like look */
+    background-color: #ffffff;     /* White background color */
+    color: #000000;  
