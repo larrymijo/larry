@@ -1,81 +1,88 @@
 /* Body styling */
 body {
-    background-color: rgb(64, 67, 84);
+    background-color: #e0e0e0; /* Elegant grey background */
+    font-family: 'Times New Roman', serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 /* Center container */
 .container {
-    margin-left: auto;
-    margin-right: auto;
-    width: 1200px;
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white container */
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 /* Header styling */
-header {
-    background-color: rgb(42, 227, 0);
-    height: 118px;
-    text-align: center;
-    font-size: 90px;
-    font-family: Arial, Helvetica, sans-serif;
+header h1 {
+    font-size: 72px;
+    font-family: 'Times New Roman', serif;
+    color: #333;
+    margin: 20px 0;
+    font-weight: bold;
 }
 
-/* Style for the small header logo */
-.header-logo {
-    width: 60px; /* Adjust to preferred size */
-    height: auto;
-    vertical-align: middle; /* Centers image vertically within the header */
+/* Text box styling */
+.text-box {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white box */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-/* Navigation styling */
-nav {
-    background-color: rgb(0, 0, 0);
-    height: 40px;
+/* Paragraph styling */
+.text-box p {
+    font-size: 24px;
+    color: #333;
+    font-family: 'Georgia', serif;
+    margin: 0;
+    opacity: 0;
+    animation: type 3s steps(40, end) forwards;
 }
 
-/* Main content area */
-main {
-    height: 1000px;
-    text-align: center;
-    padding-top: 20px;
+/* Typing animation */
+@keyframes type {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 /* Style for main content image */
 .main-image {
-    width: 80%; /* Adjust to preferred size */
-    max-width: 400px;
+    width: 80%;
+    max-width: 500px;
     height: auto;
-    margin-top: 20px;
-}
-
-/* Footer styling */
-footer {
-    background-color: lightcyan;
-    height: 40px;
-}
-
-/* Styling for main headings */
-h2 {
-    color: beige;
-    text-align: center;
-}
-
-h1 {
-    font-size: 60px;
-    color: black;
-    font-family: comic-sans, Arial, Helvetica, sans-serif;
-}
-
-/* Paragraph styling */
-p {
-    font-size: 40px;
-    color: black;
-    font-family: comic-sans, Arial, Helvetica, sans-serif;
-    text-align: left;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for the image */
 }
 
 /* Button styling for link */
 .link-button {
-    display: inline-block;         /* Makes the link behave like a button */
-    padding: 10px 20px;            /* Adds padding for a button-like look */
-    background-color: #ffffff;     /* White background color */
-    color: #000000;  
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 20px;
+}
+
+.link-button:hover {
+    background-color: #555;
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
