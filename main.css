@@ -126,3 +126,28 @@ header h1 {
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
 }
+/* Beats list styling */
+.beats-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.beat-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.beat-item h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+audio {
+    width: 100%;
+    max-width: 500px;
+}
