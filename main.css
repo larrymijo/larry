@@ -1,93 +1,88 @@
-/* Body styling */
-body {
-    background-color: #f0f0f0; /* Clear grey background */
-    font-family: 'Garamond', serif;
+/* General Styling */
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    font-family: 'Cinzel', serif;
 }
 
-/* Center container */
+/* Jules Verne-inspired homepage styling */
+body.verne-home {
+    background-color: #1a1a1a;
+    color: #d3c5a9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Allow content to start from the top */
+    padding: 20px;
+}
+
 .container {
-    width: 95%;
-    max-width: 1200px;
     text-align: center;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.7); /* Darker semi-transparent white container */
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 1200px;
+    width: 90%;
 }
 
-/* Header styling */
-header h1 {
-    font-size: 72px;
-    font-family: 'Georgia', serif;
-    color: #333;
+header {
+    margin-bottom: 20px;
+}
+
+.book-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: #d3c5a9;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     margin: 20px 0;
-    font-weight: bold;
 }
 
-/* Text box styling */
-.text-box {
-    background-color: rgba(255, 255, 255, 0.8); /* Darker semi-transparent white box */
-    padding: 20px;
-    border-radius: 10px;
+.centered-description {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    color: #d3c5a9;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     margin: 20px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-/* Paragraph styling */
-.text-box p {
-    font-size: 24px;
-    color: #333;
-    font-family: 'Garamond', serif;
-    margin: 0;
-    opacity: 0;
-    animation: type 3s steps(40, end) forwards;
-}
-
-/* Typing animation */
-@keyframes type {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* Style for main content image */
-.main-image {
+.image-container {
+    position: relative;
+    margin: 40px auto;
     width: 80%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 10px;
-    margin: 20px 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for the image */
+    max-width: 600px;
 }
 
-/* Button styling for link */
+.main-image {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.main-image.vintage-effect {
+    filter: sepia(50%) brightness(1.1) contrast(1.2) saturate(1.5);
+}
+
+.linky {
+    margin-top: 30px;
+}
+
 .link-button {
     display: inline-block;
-    padding: 15px 30px;
+    padding: 10px 20px;
+    margin: 10px;
     background-color: #333;
-    color: #fff;
+    color: #d3c5a9;
     text-decoration: none;
     border-radius: 5px;
-    font-size: 18px;
+    font-size: 1rem;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    margin-top: 20px;
 }
 
 .link-button:hover {
     background-color: #555;
-    transform: scale(1.05); /* Slight zoom effect on hover */
+    transform: scale(1.05);
 }
 
-/* Photo gallery styling */
+/* Simple photo gallery styling */
 .photo-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
@@ -100,54 +95,107 @@ header h1 {
     height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .photo:hover {
-    transform: scale(1.05); /* Slight zoom effect on hover */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+    transform: scale(1.05);
+}
+
+/* Sci-Fi music page styling */
+body.scifi-music {
+    background-color: #0d0017;
+    color: #ff6f91;
+    font-family: 'Exo', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.scifi-music .container {
+    background-color: rgba(13, 0, 23, 0.9);
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(255, 111, 145, 0.5);
+    text-align: center;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.glowing-text {
+    color: #ff6f91;
+    text-shadow: 0 0 5px #ff6f91, 0 0 10px #ff6f91, 0 0 20px #ff6f91, 0 0 40px #ff6f91;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #ff6f91, 0 0 10px #ff6f91, 0 0 20px #ff6f91, 0 0 40px #ff6f91;
+    }
+    to {
+        text-shadow: 0 0 10px #ff6f91, 0 0 20px #ff6f91, 0 0 40px #ff6f91, 0 0 60px #ff6f91;
+    }
+}
+
+.beats-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px 0;
+}
+
+.beat-item {
+    background-color: rgba(13, 0, 23, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(255, 111, 145, 0.5);
+    position: relative;
+}
+
+.audio-visualizer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.audio-scifi {
+    width: 100%;
+    max-width: 500px;
+    background-color: rgba(13, 0, 23, 0.7);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.audio-scifi::-webkit-slider-thumb {
+    background-color: #ff6f91;
+    border-radius: 50%;
+}
+
+canvas {
+    width: 100%;
+    max-width: 500px;
+    height: 150px;
+    background-color: rgba(13, 0, 23, 0.7);
+    border-radius: 10px;
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 48px;
+    .book-title {
+        font-size: 3rem;
     }
 
-    .text-box p {
-        font-size: 20px;
+    .centered-description {
+        font-size: 1.2rem;
     }
 
     .link-button {
-        font-size: 16px;
+        font-size: 0.9rem;
     }
 
     .photo-gallery {
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
-}
-/* Beats list styling */
-.beats-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-}
-
-.beat-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: left;
-}
-
-.beat-item h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-audio {
-    width: 100%;
-    max-width: 500px;
 }

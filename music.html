@@ -3,34 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beats - Larry's Website</title>
+    <title>Sci-Fi Beats - Larry's Website</title>
     <link rel="stylesheet" href="main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Georgia&family=Garamond&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Exo&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="scifi-music">
     <div class="container">
         <header>
-            <h1>My Beats</h1>
+            <h1 class="glowing-text">Sci-Fi Beats</h1>
         </header>
         <main>
             <div class="beats-list">
                 <div class="beat-item">
-                    <h2>Beat 1</h2>
-                    <audio controls>
-                        <source src="beats\beat1.wav" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
+                    <h2 class="glowing-text">Beat 1</h2>
+                    <div class="audio-visualizer">
+                        <audio controls class="audio-scifi" id="audio1">
+                            <source src="beats/beat1.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <canvas id="visualizer1"></canvas>
+                    </div>
                 </div>
                 <div class="beat-item">
-                    <h2>DRILL JJ Beat</h2>
-                    <audio controls>
-                        <source src="beats/DRILL JJ.wav" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
+                    <h2 class="glowing-text">DRILL JJ Beat</h2>
+                    <div class="audio-visualizer">
+                        <audio controls class="audio-scifi" id="audio2">
+                            <source src="beats/DRILL JJ.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <canvas id="visualizer2"></canvas>
+                    </div>
                 </div>
-                <!-- Add more beats as needed -->
             </div>
         </main>
     </div>
+    <script src="visualizer.js"></script>
 </body>
 </html>
