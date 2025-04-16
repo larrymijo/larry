@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="main.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body class="scifi-music">
     <div class="space-background"></div>
@@ -40,7 +41,16 @@
             </div>
         </main>
     </div>
-    <script src="visualizer.js"></script>
+    <script src="3d-visualizer.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const audio1 = document.getElementById('audio1');
+            const audio2 = document.getElementById('audio2');
+            
+            new Audio3DVisualizer(audio1, 'visualizer1');
+            new Audio3DVisualizer(audio2, 'visualizer2');
+        });
+    </script>
     <script src="space-background.js"></script>
 </body>
 </html>
