@@ -1,33 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Larry's Webpage</title>
-    <link rel="stylesheet" href="main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body class="verne-home">
-    <div class="container">
-        <header>
-            <h1 class="fancy-text">LARRY'S WEB</h1>
-        </header>
-        <main>
-            <div class="text-box">
-                <p class="fancy-text">Hello World! Welcome to my personal space. Scroll down for some photos and beats! Might include something later, too lazy rn :P</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Personal webpage."
+    />
+    <meta name="author" content="Lawrence" />
+    <title>Lawrence | Personal Web</title>
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar container">
+        <a href="index.html" class="logo">Lawrence Web</a>
+
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero container">
+        <div class="hero-content">
+          <p class="hero-subtitle">Software Developer</p>
+          <h1>Hello World! I’m Lawrence</h1>
+          <p class="hero-text">
+            Welcome to my personal webpage. Here you will find my personal portfolio and some other information about me.
+          </p>
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="#contact" class="btn btn-secondary">Contact Me</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section container">
+        <h2>About Me</h2>
+        <p>
+          I am a software developer student passionate about tech projects.
+          I am currently improving my skills in programming and creating projects to strengthen my portfolio.
+        </p>
+      </section>
+
+      <section id="projects" class="section container">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+          <article class="project-card">
+            <h3>Organisk LM webpage</h3>
+            <p class="project-description">
+              A business website for OrganiskLM focused on plant nutrition and fertilizer solutions.
+              The site presents products, commercial information, and contact options in a clean,
+              responsive, and professional format.
+            </p>
+
+            <div class="project-links">
+                <a
+                    href="https://www.organisklm.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary"
+                >
+                    Live Website
+                </a>
             </div>
-            <div class="image-container">
-                <img src="images/WhatsApp Image 2024-11-13 at 1.15.49 AM.jpeg" alt="Larry" class="main-image vintage-effect">
-            </div>
-            <div class="linky">
-                <a href="https://www.instagram.com/lawrence_arias999/profilecard/?igsh=cXgzZHozamVvMnR3" class="link-button">INSTAGRAM</a>
-                <a href="photos.html" class="link-button">PHOTOGRAPHY</a>
-                <a href="music.html" class="link-button">BEATS</a>
-            </div>
-        </main>
-    </div>
-    <!-- Add this before the closing </body> tag -->
-    <script src="cursor-smoke.js"></script>
-    <script src="animations.js"></script>
-</body>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills" class="section container">
+        <h2>Skills</h2>
+        <div class="skills-list">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+          <span>Git</span>
+          <span>VS Code</span>
+          <span>Java</span>
+          <span>Python</span>
+        </div>
+      </section>
+
+      <section id="contact" class="section container">
+        <h2>Contact</h2>
+        <p>Email: lawrencearciniegas@gmail.com</p>
+        <p>GitHub: github.com/larrymijo</p>
+        <p>LinkedIn: linkedin.com/in/lawrence-arciniegas-245a7b19a</p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2026 Lawrence Arciniegas. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>
