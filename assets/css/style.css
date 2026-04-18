@@ -293,3 +293,49 @@ h2 {
     font-size: 2.2rem;
   }
 }
+
+/* =========================
+   FANCY TRANSITIONS & EFFECTS
+========================= */
+
+/* 1. Scroll Reveal Base Classes */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px); /* Pushes the element down initially */
+  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); /* Smooth snap-into-place curve */
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Add a slight delay for elements inside a grid so they don't load all at once */
+.project-card:nth-child(1) { transition-delay: 0.1s; }
+.project-card:nth-child(2) { transition-delay: 0.2s; }
+.project-card:nth-child(3) { transition-delay: 0.3s; }
+
+/* 2. Neon Glow Hover Effects for Skills */
+.skills-list span {
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.skills-list span:hover {
+  background-color: rgba(142, 197, 255, 0.1);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  box-shadow: 0 0 15px rgba(142, 197, 255, 0.4);
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* 3. Blinking Cursor for the Typing Effect */
+.cursor::after {
+  content: '|';
+  color: var(--primary-color);
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
