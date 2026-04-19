@@ -203,3 +203,53 @@ function animateParticles() {
 
 initParticles();
 animateParticles();
+
+/* =========================
+   5. SPACE DINO SCROLL TRIGGER
+========================= */
+const aboutSection = document.getElementById("about");
+const spaceDino = document.getElementById("space-dino");
+
+const dinoObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // If the About section is on screen, show the dino
+      spaceDino.classList.add("show-dino");
+    } else {
+      // If we scroll away, hide the dino
+      spaceDino.classList.remove("show-dino");
+    }
+  });
+}, {
+  threshold: 0.4 // Triggers when 40% of the About section is visible
+});
+
+if (aboutSection && spaceDino) {
+  dinoObserver.observe(aboutSection);
+}
+
+/* =========================
+   6. ROCKET LAUNCH SCROLL TRIGGER
+========================= */
+const heroSection = document.querySelector(".hero");
+const spaceRocket = document.getElementById("space-rocket");
+
+const rocketObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // If we are at the top of the page, the rocket lands/docks
+      spaceRocket.classList.remove("launched");
+      spaceRocket.classList.add("docked");
+    } else {
+      // As soon as we scroll down, blast off!
+      spaceRocket.classList.remove("docked");
+      spaceRocket.classList.add("launched");
+    }
+  });
+}, {
+  threshold: 0.3 // Triggers when 30% of the hero section is visible
+});
+
+if (heroSection && spaceRocket) {
+  rocketObserver.observe(heroSection);
+}
