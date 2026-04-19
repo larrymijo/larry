@@ -73,3 +73,133 @@ const revealObserver = new IntersectionObserver((entries, observer) => {
 
 // Start observing
 elementsToReveal.forEach(el => revealObserver.observe(el));
+
+/* =========================
+   4. SPACE CONSTELLATION CANVAS
+========================= */
+const canvas = document.getElementById("space-canvas");
+const ctx = canvas.getContext("2d");
+
+// Set canvas to full window size
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
+
+// Particle (Star) Object
+const particlesArray = [];
+const numberOfParticles = 80; // Adjust for more/fewer stars
+const connectionDistance = 120; // How close they need to be to connect
+
+// Mouse position object
+const mouse = {
+  x: null,
+  y: null
+};
+
+// Track mouse movement (Makes the stars react to you!)
+window.addEventListener("mousemove", (event) => {
+  mouse.x = event.x;
+  mouse.y = event.y;
+});
+
+// Clear mouse position when it leaves the screen
+window.addEventListener("mouseout", () => {
+  mouse.x = null;
+  mouse.y = null;
+});
+
+class Particle {
+  constructor() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.size = Math.random() * 1.5 + 0.5; // Star size
+    this.speedX = (Math.random() - 0.5) * 0.5; // Slow horizontal drift
+    this.speedY = (Math.random() - 0.5) * 0.5; // Slow vertical drift
+  }
+  
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+
+    // Bounce off edges smoothly
+    if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+    if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+  }
+
+  draw() {
+    ctx.fillStyle = "rgba(142, 197, 255, 0.8)"; // Matches your primary color
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+// Create the stars
+function initParticles() {
+  particlesArray.length = 0;
+  for (let i = 0; i < numberOfParticles; i++) {
+    particlesArray.push(new Particle());
+  }
+}
+
+// Draw the constellation lines
+function connectParticles() {
+  let opacityValue = 1;
+  
+  // Check every particle against every other particle
+  for (let a = 0; a < particlesArray.length; a++) {
+    for (let b = a; b < particlesArray.length; b++) {
+      let dx = particlesArray[a].x - particlesArray[b].x;
+      let dy = particlesArray[a].y - particlesArray[b].y;
+      let distance = Math.sqrt(dx * dx + dy * dy);
+
+      // If they are close, draw a line between them
+      if (distance < connectionDistance) {
+        // Line fades out the further apart they get
+        opacityValue = 1 - (distance / connectionDistance);
+        ctx.strokeStyle = `rgba(142, 197, 255, ${opacityValue * 0.2})`; // Very subtle line
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+        ctx.stroke();
+      }
+    }
+
+    // Connect to Mouse if mouse is active
+    if (mouse.x != null && mouse.y != null) {
+      let dxMouse = particlesArray[a].x - mouse.x;
+      let dyMouse = particlesArray[a].y - mouse.y;
+      let distanceMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+      
+      if (distanceMouse < connectionDistance) {
+        opacityValue = 1 - (distanceMouse / connectionDistance);
+        ctx.strokeStyle = `rgba(142, 197, 255, ${opacityValue * 0.4})`; // Slightly brighter line for mouse
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+        ctx.lineTo(mouse.x, mouse.y);
+        ctx.stroke();
+      }
+    }
+  }
+}
+
+// Animation Loop
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear screen every frame
+  
+  for (let i = 0; i < particlesArray.length; i++) {
+    particlesArray[i].update();
+    particlesArray[i].draw();
+  }
+  connectParticles();
+  
+  requestAnimationFrame(animateParticles); // Loops smoothly
+}
+
+initParticles();
+animateParticles();

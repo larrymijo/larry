@@ -35,12 +35,12 @@ html {
 
 body {
   font-family: Arial, sans-serif;
-  background:
-    radial-gradient(circle at top, rgba(142, 197, 255, 0.08), transparent 30%),
-    linear-gradient(180deg, #05070a 0%, #0a0f14 100%);
+  background-color: #05070a; /* Fallback solid color */
+  background: radial-gradient(circle at center, #0f141b 0%, #05070a 100%);
   color: var(--text-color);
   line-height: 1.6;
   padding-top: 80px;
+  overflow-x: hidden; /* Prevents scrollbars from shooting stars */
 }
 
 img {
@@ -338,4 +338,76 @@ h2 {
 
 @keyframes blink {
   50% { opacity: 0; }
+}
+
+/* =========================
+   SPACE BACKGROUND & STARS
+========================= */
+
+/* The interactive constellation canvas */
+#space-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* Puts it behind everything */
+  pointer-events: none; /* Ensures you can still click buttons over it */
+}
+
+/* Shooting Stars */
+.shooting-star {
+  position: fixed;
+  top: -10px;
+  left: -10px;
+  width: 150px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(142, 197, 255, 0.8), #fff);
+  z-index: -1;
+  pointer-events: none;
+  transform: rotate(-45deg);
+  animation: shooting 6s linear infinite;
+  opacity: 0;
+}
+
+/* Give the shooting stars a glowing "head" */
+.shooting-star::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  right: 0;
+  width: 5px;
+  height: 5px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 2px rgba(142, 197, 255, 0.8);
+}
+
+/* Different timings and positions for the shooting stars */
+.delay-1 {
+  top: 20%;
+  left: 50%;
+  animation-delay: 2s;
+  animation-duration: 8s;
+}
+
+.delay-2 {
+  top: 0;
+  left: 80%;
+  animation-delay: 4.5s;
+  animation-duration: 7s;
+}
+
+@keyframes shooting {
+  0% {
+    transform: rotate(-45deg) translateX(0);
+    opacity: 1;
+  }
+  20% {
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(-45deg) translateX(-1500px);
+    opacity: 0;
+  }
 }
